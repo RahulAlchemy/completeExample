@@ -1,6 +1,3 @@
-import 'dart:convert';
-
-
 import 'package:flutter/material.dart';
 
 import 'json_api.dart';
@@ -16,6 +13,7 @@ class JsonDataPage extends StatefulWidget {
 class _JsonDataPageState extends State<JsonDataPage> {
   bool loading = true;
   Future<JsonModel>? _jsonModel;
+
   @override
   void initState() {
     _jsonModel = JsonApi().getJsonData();
@@ -31,15 +29,15 @@ class _JsonDataPageState extends State<JsonDataPage> {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return ListView.builder(
-                //itemCount: json_Data == null ? 0 : json_Data.length,
+                  //itemCount: json_Data == null ? 0 : json_Data.length,
                   itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text(""),
-                      //subtitle: Text(json_Data[index]["body"]),
-                    );
-                  });
+                return const ListTile(
+                  title: Text(""),
+                  //subtitle: Text(json_Data[index]["body"]),
+                );
+              });
             } else {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             }
           },
         ),

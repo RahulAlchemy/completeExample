@@ -1,12 +1,12 @@
-import 'package:dio/dio.dart';
 import 'package:example/bloc_cubit/movie_repository.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'cart_bloc.dart';
 
 class BlocEventPage extends StatefulWidget {
+  const BlocEventPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _ShopPage();
 }
@@ -73,7 +73,6 @@ class _ShopPage extends State<BlocEventPage> {
                 ),
                 BlocBuilder<CartBloc, CartState>(
                   builder: (context, state) {
-                    print("pass list builder");
                     if (state is CartLoading) {
                       return const SliverToBoxAdapter(
                         child: Center(
@@ -110,8 +109,10 @@ class _ShopPage extends State<BlocEventPage> {
                                               .read<CartBloc>()
                                               .cartItems
                                               .contains(movies[index])
-                                          ? Icon(Icons.remove_shopping_cart)
-                                          : Icon(Icons.add_shopping_cart)),
+                                          ? const Icon(
+                                              Icons.remove_shopping_cart)
+                                          : const Icon(
+                                              Icons.add_shopping_cart)),
                                 ),
                               );
                             },
@@ -128,10 +129,11 @@ class _ShopPage extends State<BlocEventPage> {
                     }
                   },
                   buildWhen: (p, s) {
-                    if (s is CartLoaded || s is CartError || s is CartLoaded)
+                    if (s is CartLoaded || s is CartError || s is CartLoaded) {
                       return true;
-                    else
+                    } else {
                       return false;
+                    }
                   },
                 )
               ],

@@ -1,7 +1,6 @@
 import 'package:example/bracket_widget.dart';
 import 'package:example/player_widget.dart';
 import 'package:example/round_response.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BracketPage extends StatefulWidget {

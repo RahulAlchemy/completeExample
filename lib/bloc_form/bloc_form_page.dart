@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'form_bloc.dart';
 
 class BlocFormPage extends StatefulWidget {
+  const BlocFormPage({Key? key}) : super(key: key);
+
   @override
   _MyFormState createState() => _MyFormState();
 }
@@ -15,9 +17,7 @@ class _MyFormState extends State<BlocFormPage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
-    });
-
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {});
   }
 
   @override
@@ -33,14 +33,14 @@ class _MyFormState extends State<BlocFormPage> {
       create: (_) => FormBloc(),
       child: Builder(
         builder: (context) {
-         return Scaffold(
+          return Scaffold(
             body: BlocListener<FormBloc, MyFormState>(
               listener: (context, state) {
                 if (state.status == 3) {
                   ScaffoldMessenger.of(context).hideCurrentSnackBar();
                   showDialog<void>(
                     context: context,
-                    builder: (_) => SuccessDialog(),
+                    builder: (_) => const SuccessDialog(),
                   );
                 }
                 if (state.status == 2) {
@@ -57,7 +57,7 @@ class _MyFormState extends State<BlocFormPage> {
                   children: <Widget>[
                     EmailInput(focusNode: _emailFocusNode),
                     PasswordInput(focusNode: _passwordFocusNode),
-                    SubmitButton(),
+                    const SubmitButton(),
                   ],
                 ),
               ),
@@ -136,6 +136,8 @@ class PasswordInput extends StatelessWidget {
 }
 
 class SubmitButton extends StatelessWidget {
+  const SubmitButton({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FormBloc, MyFormState>(
@@ -153,6 +155,8 @@ class SubmitButton extends StatelessWidget {
 }
 
 class SuccessDialog extends StatelessWidget {
+  const SuccessDialog({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -166,17 +170,16 @@ class SuccessDialog extends StatelessWidget {
           children: <Widget>[
             Row(
               mainAxisSize: MainAxisSize.max,
-              children: [
-                const Icon(Icons.info),
-                const Flexible(
-                  child: Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      'Form Submitted Successfully!',
-                      softWrap: true,
-                    ),
-                  )
-                )
+              children: const [
+                Icon(Icons.info),
+                Flexible(
+                    child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Text(
+                        'Form Submitted Successfully!',
+                        softWrap: true,
+                      ),
+                    ))
               ],
             ),
             ElevatedButton(

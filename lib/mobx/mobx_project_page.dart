@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
-import '../bloc_cubit/movie_repository.dart';
 import 'mobx_product_viemodel.dart';
 
 class MobxProjectPage extends StatefulWidget {
+  const MobxProjectPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _MobxProjectPage();
 }

@@ -1,11 +1,13 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'movie_repository.dart';
 import 'movies_cubit.dart';
 import 'movies_state.dart';
 
 class BlocCubitPage extends StatefulWidget {
+  const BlocCubitPage({Key? key}) : super(key: key);
+
   @override
   _BlocCubitPageState createState() => _BlocCubitPageState();
 }

@@ -6,6 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'cart_bloc.dart';
 
 class BlocStreamPage extends StatefulWidget {
+  const BlocStreamPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _ShopPage();
 }

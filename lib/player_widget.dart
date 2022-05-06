@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PlayerWidget extends StatelessWidget{
@@ -6,7 +5,10 @@ class PlayerWidget extends StatelessWidget{
   final String? score;
   final String? id;
   final VoidCallback onTap;
-   PlayerWidget({this.name, this.score, this.id,required this.onTap});
+
+  const PlayerWidget(
+      {this.name, this.score, this.id, required this.onTap, Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

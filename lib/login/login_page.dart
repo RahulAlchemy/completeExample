@@ -1,10 +1,12 @@
 import 'package:example/dashboard/dashboard_page.dart';
-
-import 'login_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'login_bloc.dart';
+
 class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _LoginPage();
 }
